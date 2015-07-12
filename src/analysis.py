@@ -74,7 +74,7 @@ def main(argv):
 		line = input_file.readline()
 		if not line:
 			print "i m here"
-			
+
 			if write_to_files == 0:
 				ft1 = open(OUTPUT_WORDS_FILE, 'w')
 				ft2 = open(OUTPUT_MEDIAN_FILE, 'w')
