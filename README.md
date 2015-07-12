@@ -1,5 +1,5 @@
 ### insight-data-engineering-coding-challenge
-Coding challenge for insight data engineering
+Coding challenge for insight data engineering fellowship
 
 ##### Python version used
 - 2.7.5
