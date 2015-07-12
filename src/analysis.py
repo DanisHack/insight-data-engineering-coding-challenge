@@ -27,7 +27,7 @@ class tweet_analysis:
 		
 
 	'''
-		function to each line in from tweets.txt
+		function to process each line in from tweets.txt
 	'''
 	def process_line(self, line):
 		self.calculate_unique_words_in_a_tweet(line)
