@@ -41,25 +41,31 @@ def main(argv, tweet_analysis):
 	INPUT_FILE = ''
    	OUTPUT_WORDS_FILE = ''
    	OUTPUT_MEDIAN_FILE = ''
+   	SLEEP_TIME = ''
 
    	tweet_analysis = tweet_analysis()
 
    	try:
-   		opts, args = getopt.getopt(argv,"hi:w:m:",["infile=","out1file=", "out2file="])
+   		opts, args = getopt.getopt(argv,"ht:i:w:m:",["stime=","infile=","out1file=", "out2file="])
    	except getopt.GetoptError:
    		print 'test.py -i <inputfile> -w <outputfile 1> -m <outputfile 2>'
    		sys.exit(2)
 
    	for opt, arg in opts:
    		if opt == '-h':
-   			print 'test.py -i <inputfile> -w <outputfile 1> -m <outputfile 2>'
+   			print 'python test.py -t <sleeptime> -i <inputfile> -w <outputfile 1> -m <outputfile 2>'
    			sys.exit()
+   		elif opt in ("-t", "--stime"):
+   			SLEEP_TIME = arg
    		elif opt in ("-i", "--infile"):
    			INPUT_FILE = arg
    		elif opt in ("-w", "--out1file"):
    			OUTPUT_WORDS_FILE = arg
    		elif opt in ("-m", "--out2file"):
    			OUTPUT_MEDIAN_FILE = arg
+
+   	if SLEEP_TIME:
+   		print 'Sleep time is "', SLEEP_TIME, type(SLEEP_TIME), int(SLEEP_TIME)
 
    	print 'Input file is "', INPUT_FILE
    	print 'Output file 1 is "', OUTPUT_WORDS_FILE
@@ -73,7 +79,6 @@ def main(argv, tweet_analysis):
 	while True:
 		line = input_file.readline()
 		if not line:
-			print "------- Waiting for new tweet -------"
 
 			if write_to_files == 0:
 				ft1 = open(OUTPUT_WORDS_FILE, 'w')
@@ -83,15 +88,20 @@ def main(argv, tweet_analysis):
 					ft1.write("%-50s %s %s"%(str(key),str(value),"\n"))
 				ft1.close()
 
-				ft2.seek(0,2)
-				for elem in tweet_analysis.medians_unique:
-					ft2.write(str(elem)+"\n")
+				ft2.write('\n'.join(map(str, tweet_analysis.medians_unique)))
 				ft2.close()
 
 				write_to_files = 1
-				tweet_analysis.medians_unique = list()
-				time.sleep(0.1)
+				print "\n#### Tweets in input file processed, Check ft1.txt and ft2.txt ####\n"
 				continue
+			else:
+
+				print "------- Waiting for new tweet to come -------\n"
+				if SLEEP_TIME:
+					time.sleep(int(SLEEP_TIME))
+				else:
+					print SLEEP_TIME
+					time.sleep(0.1)
 		else:
 			write_to_files = 0
 			line = line.rstrip('\n')
