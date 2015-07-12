@@ -36,7 +36,7 @@ class tweet_analysis:
 		print self.medians_unique
 
 
-def main(argv):
+def main(argv, tweet_analysis):
 
 	INPUT_FILE = ''
    	OUTPUT_WORDS_FILE = ''
@@ -73,14 +73,14 @@ def main(argv):
 	while True:
 		line = input_file.readline()
 		if not line:
-			print "i m here"
+			print "------- Waiting for new tweet -------"
 
 			if write_to_files == 0:
 				ft1 = open(OUTPUT_WORDS_FILE, 'w')
 				ft2 = open(OUTPUT_MEDIAN_FILE, 'w')
 
 				for key, value in sorted(tweet_analysis.words_tweeted.items()):
-					ft1.write(str(key)+"    "+str(value)+"\n")
+					ft1.write("%-50s %s %s"%(str(key),str(value),"\n"))
 				ft1.close()
 
 				ft2.seek(0,2)
@@ -99,4 +99,4 @@ def main(argv):
 
 
 if __name__ == '__main__':
-	main(sys.argv[1:])
+	main(sys.argv[1:], tweet_analysis)
