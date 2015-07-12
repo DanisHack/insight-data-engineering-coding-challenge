@@ -1,14 +1,14 @@
 # insight-data-engineering-coding-challenge
 Coding challenge for insight data engineering
 
-#### Python version used
-2.7.5
+##### Python version used
+- 2.7.5
 
-#### Python default libs used
+##### Python default libs used
 - sys, time, getopt
 - collections -> Counter
 
-#### Instructions
+##### Instructions
 ###### For help
 bash ./help.sh
 ###### To run the program
