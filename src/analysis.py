@@ -48,12 +48,14 @@ def main(argv, tweet_analysis):
    	try:
    		opts, args = getopt.getopt(argv,"ht:i:w:m:",["stime=","infile=","out1file=", "out2file="])
    	except getopt.GetoptError:
-   		print 'python test.py -t <sleeptime> -i <inputfile> -w <outputfile 1> -m <outputfile 2>'
+   		print '\ncommand:\npython <filename> <options>\n'
+   		print '\nExample usage:\npython test.py -t <sleeptime> -i <inputfile> -w <outputfile 1> -m <outputfile 2>\n\nOptions:\n'
+   		print '-t : waiting time or sleep time.\n\tif verbosity of tweets is low, try increasing increasing sleep time using this argument.\n\tIf you do not specify this, Default sleep time is 0.8.\n-i : input file path, without quotes\n-w : output file path for first feature (words_tweeted), without quotes\n-m : output file path for second feature (median_unique), without quotes\n'
    		sys.exit(2)
 
    	for opt, arg in opts:
    		if opt == '-h':
-   			print '\ncommand:\npython test.py options\n'
+   			print '\ncommand:\npython <filename> <options>\n'
    			print '\nExample usage:\npython test.py -t <sleeptime> -i <inputfile> -w <outputfile 1> -m <outputfile 2>\n\nOptions:\n'
    			print '-t : waiting time or sleep time.\n\tif verbosity of tweets is low, try increasing increasing sleep time using this argument.\n\tIf you do not specify this, Default sleep time is 0.8.\n-i : input file path, without quotes\n-w : output file path for first feature (words_tweeted), without quotes\n-m : output file path for second feature (median_unique), without quotes\n'
    			sys.exit()
