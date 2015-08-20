@@ -33,8 +33,8 @@ Also tools like apache storm can be used quite efficiently to apply different al
 There is a seperate folder for load test which was performed on this program. Program was tested with 2 GB data as well but due to size constraints could not be uploaded.
 
 To run test:
-  cd load_test
-  bash ./test_run.sh
+- cd load_test
+- bash ./test_run.sh
 
 load_test
 
