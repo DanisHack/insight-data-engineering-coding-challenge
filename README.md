@@ -27,7 +27,7 @@ Obviously, processing can be improved for bounded and unbounded data, via both b
 - windowing by processing time, 
 - and windowing by event time.
 
-Also apache storm can be used quite efficiently to process tweets in real time.
+Also tools like apache storm can be used quite efficiently to apply different algorithms, for processing tweets in real time.
 
 ###### Additional: Load Test
 There is a seperate folder for load test which was performed on this program. Program was tested with 2 GB data as well but due to size constraints could not be uploaded.
