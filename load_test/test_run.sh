@@ -3,4 +3,4 @@
 # example of the run script for running the word count
 
 # I'll execute my programs, with the input directory tweet_input and output the files in the directory tweet_output
-python ../src/analysis.py -i ./tweet_data_set_1.txt -w ./test_ft1.txt -m ./test_ft2.txt
+python ./copy_analysis.py -i ./tweet_data_set_1.txt -w ./test_ft1.txt -m ./test_ft2.txt

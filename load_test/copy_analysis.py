@@ -18,19 +18,15 @@ class tweet_analysis:
 		function to calculate unique words count 
 	'''
 	def calculate_unique_words_in_a_tweet(self, line):
-
-		# String to List Of words
 		word_list = line.split(' ')
 
-		# remove any empty word -- introduced due to double/triple spaces
+		# remove double spaces
 		word_list = filter(None, word_list)
+		print word_list
 
-		# Dictionary for maintaining word count as a HASH
 		unique_words_count_dict = Counter(word_list)
-
 		#print unique_words_count_dict, len(unique_words_count_dict.keys())
 		unique_words_count = len(unique_words_count_dict.keys())
-
 		self.unique_words_count_in_a_tweet.append(unique_words_count)
 		self.words_tweeted = self.words_tweeted + unique_words_count_dict
 		
@@ -52,11 +48,8 @@ def main(argv, tweet_analysis):
    	OUTPUT_MEDIAN_FILE = ''
    	SLEEP_TIME = ''
 
-   	# Object for tweet-analysis - Can be used for multiprocessing the tweets, multiple workers
-   	# can be spwaned to process the tweets fast, creating a object for each worker
    	tweet_analysis = tweet_analysis()
 
-   	# COMMAND LINE OPTIONS VALIDATION
    	try:
    		opts, args = getopt.getopt(argv,"ht:i:w:m:",["stime=","infile=","out1file=", "out2file="])
    	except getopt.GetoptError:
@@ -90,14 +83,12 @@ def main(argv, tweet_analysis):
 	input_file = open(INPUT_FILE, 'r')
 	input_file.seek(0,0)
 
-	# COUNTER TO KEEP TRACK OF WRITING TO OUPUT FILES
 	write_to_files = 0
 
 	while True:
 		line = input_file.readline()
 		if not line:
 
-			#WRITING TO OUTPUT FILES
 			if write_to_files == 0:
 				ft1 = open(OUTPUT_WORDS_FILE, 'w')
 				ft2 = open(OUTPUT_MEDIAN_FILE, 'w')
@@ -110,25 +101,19 @@ def main(argv, tweet_analysis):
 				ft2.close()
 
 				write_to_files = 1
-				print "\n#### Tweets in input file processed, Check %s and %s ####\n"%(OUTPUT_WORDS_FILE, OUTPUT_MEDIAN_FILE)
+				print "\n#### Tweets in input file processed, Check %s and %s  ####\n"%(OUTPUT_WORDS_FILE, OUTPUT_MEDIAN_FILE)
 				continue
 			else:
 
 				print "------- Waiting for new tweet to come -------\n"
-
-				# SLEEP TIME FOR FURTHER PROCESSING
 				if SLEEP_TIME:
 					time.sleep(int(SLEEP_TIME))
 				else:
-					print SLEEP_TIME
+					#print SLEEP_TIME
 					time.sleep(0.1)
 		else:
 			write_to_files = 0
-
-			# Next line character is removed from each line(tweet)
 			line = line.rstrip('\n')
-
-			# Function call to process line
 			tweet_analysis.process_line(line)
 
 

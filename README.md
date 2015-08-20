@@ -21,21 +21,26 @@ I have created a common processing file(analysis.py) for both kinds of features.
   2. Then, program starts seeking the input file for new tweets with some sleep time (default is 0.8). You can change the sleep time or waiting time by using -t argument in run.sh based on your tweets verbosity.
   3. As the tweet arrives, program process that tweet and updates output files.
 
-###### Additional
-There is a seperate folder for load test which was performed on this program. Program was test with 2 GB data as well but due to size constraints could not be uploaded.
+Obviously, processing can be improved for bounded and unbounded data, via both batch and streaming engines, we can roughly categorizing the unbounded approaches into: 
+- time-agnostic
+- approximation, 
+- windowing by processing time, 
+- and windowing by event time.
+
+Also apache storm can be used quite efficiently to process tweets in real time.
+
+###### Additional: Load Test
+There is a seperate folder for load test which was performed on this program. Program was tested with 2 GB data as well but due to size constraints could not be uploaded.
 
 To run test:
-  bash ./load_test/test_run.sh
+  cd load_test
+  bash ./test_run.sh
 
 load_test
-	|
-	|- test_ft1.txt => output file for first feature.
-	|
-	|- test_ft2.txt => output file for second feature.
-	|
-	|- test_run.sh => bash script for running this load test. 
-	|
-	|- tweet_data_set_1.txt => Input for the test.
+- test_ft1.txt => output file for first feature.
+- test_ft2.txt => output file for second feature.
+- test_run.sh => bash script for running this load test. 
+- tweet_data_set_1.txt => Input for the test.
 
 
 
