@@ -34,11 +34,11 @@ Also tools like apache storm can be used quite efficiently to apply different al
 ###### Additional: Load Test
 There is a seperate folder for load test which was performed on this program. Program was tested with 2 GB data as well but due to size constraints could not be uploaded.
 
-To run test:
+####### To run test:
 - cd load_test
 - bash ./test_run.sh
 
-load_test files:-
+####### load_test files:-
 
 - test_ft1.txt => output file for first feature.
 - test_ft2.txt => output file for second feature.
