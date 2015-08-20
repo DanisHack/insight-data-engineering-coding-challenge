@@ -9,8 +9,10 @@ Coding challenge for insight data engineering fellowship
 - collections -> Counter
 
 ##### Instructions
+
 ###### For help
 - bash ./help.sh
+
 ###### To run the program
 - bash ./run.sh
 
@@ -36,7 +38,7 @@ To run test:
 - cd load_test
 - bash ./test_run.sh
 
-load_test
+load_test files:-
 
 - test_ft1.txt => output file for first feature.
 - test_ft2.txt => output file for second feature.
