@@ -10,9 +10,9 @@ Coding challenge for insight data engineering fellowship
 
 ##### Instructions
 ###### For help
-bash ./help.sh
+- bash ./help.sh
 ###### To run the program
-bash ./run.sh
+- bash ./run.sh
 
 ###### Explanation
 I have created a common processing file(analysis.py) for both kinds of features. try running help first.
