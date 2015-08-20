@@ -37,6 +37,7 @@ To run test:
   bash ./test_run.sh
 
 load_test
+
 - test_ft1.txt => output file for first feature.
 - test_ft2.txt => output file for second feature.
 - test_run.sh => bash script for running this load test. 
